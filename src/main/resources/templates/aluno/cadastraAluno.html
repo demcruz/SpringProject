@@ -19,41 +19,38 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+</script>
+</script>
 </head>
 <body>
 	<div class="container">
-		<div class="panel-default">
-			<div class="text-center">
-				<h1 class="h4 text-gray-900 mb-4">Listagem de Alunos</h1>
-			</div>
-			<div class="panel-body">
-				<div class="table-responsive">
-					<table
-						class="table table-sm table-striped table-hover table-bordered">
-						<thead>
-							<tr>
-								<th>ID</th>
-								<th>Nome </th>
-								<th></th>
-							</tr>
-							
-							<tbody>
-								<tr th:each="aluno : ${alunos}">
-								<td th:text="${aluno.id}"></td>
-								<td th:text="${aluno.nome}"></td>
-							<td>
-								<div class="btn-group pull-right">
-									<a class="btn btn-sm btn-primary" th:href="@{/aluno/alterar/{idAluno}(idAluno=${aluno.id})}">ALTERAR</a>
-									<a class="btn btn-sm btn-danger">EXCLUIR</a>
-								</div>
-							</td>
-							</tr>
-							</tbody>
-					</table>
-				</div>
-			</div>
+		<div class="panel-heading" align="center">
+			<strong>CADASTRA DE ALUNO</strong>
 		</div>
-		<a class="btn btn-sm btn-success" th:href="@{/aluno/cadastrar}"> Cadastrar Novo Documento</a>
+
+		<div class="panel-body border">
+			<form class="form-horizontal" th:object="${aluno}"
+				th:action="@{/aluno/salvar}" method="POST" style="margin: 10px">
+				<div class="form-group">
+					<fieldset>
+						<div class="form-group rouw">
+							<label>NOME </label> <input type="text"
+								class="form-control input-sm" th:field="*{nome}"
+								autofocus="autofocus" placeholder="Informe o Nome"
+								maxlength="50" />
+						</div>
+					</fieldset>
+				</div>
+				<div align="center">
+					<button type="submit" class="btn btn-sm btn-success">SALVAR</button>
+					<a th:href="@{/aluno/listarAlunos}" class="btn btn-sm btn-default">CANCELAR</a>
+				</div>
+			</form>
+		</div>
 	</div>
+
 </body>
 </html>

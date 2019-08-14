@@ -43,7 +43,7 @@
 								<td th:text="${aluno.nome}"></td>
 							<td>
 								<div class="btn-group pull-right">
-									<a class="btn btn-sm btn-primary">ALTERAR</a>
+									<a class="btn btn-sm btn-primary" th:href="@{/aluno/alterar/{idAluno}(idAluno=${aluno.id})}">ALTERAR</a>
 									<a class="btn btn-sm btn-danger">EXCLUIR</a>
 								</div>
 							</td>
@@ -53,7 +53,7 @@
 				</div>
 			</div>
 		</div>
-		<a class="btn btn-sm btn-success"> Cadastrar Novo Documento</a>
+		<a class="btn btn-sm btn-success" th:href="@{/aluno/cadastrar}"> Cadastrar Novo Documento</a>
 	</div>
 </body>
 </html>
