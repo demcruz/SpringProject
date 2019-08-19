@@ -53,5 +53,5 @@ public class AlunoController {
 	public ModelAndView alterar(Aluno alunoAlterado) throws ObjectNotFoundException{
 		alunoService.salvarAlteracao(alunoAlterado);
 		return listarTodosAlunos();
-	}
+	} 
 }

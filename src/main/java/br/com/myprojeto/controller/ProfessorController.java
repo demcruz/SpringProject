@@ -53,7 +53,7 @@ public class ProfessorController {
 		professorService.salvarAlteracao(professorAlterado);
 		return listarTodosProfessores();
 	}
-	
+	 
 	
 	
 
