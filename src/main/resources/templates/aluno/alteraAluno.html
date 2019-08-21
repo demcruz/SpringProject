@@ -27,33 +27,37 @@
 </head>
 <body>
 	<div class="container">
-	<div class="panel-heading" align="center">
+		<div class="panel-heading" align="center">
 			<strong>Alteração Aluno</strong>
 		</div>
-		
-			<div class="panel-body border">
-				<form class="form-horizontal" th:object="${aluno}" th:action="@{/aluno/alterar}" method="POST" style="margin:10px">
+
+		<div class="panel-body border">
+			<form class="form-horizontal" th:object="${aluno}"
+				th:action="@{/aluno/alterar}" method="POST" style="margin: 10px">
 				<div class=form-group>
-				<fieldset>
-					<div class="form-group row">
-					<label>	ID </label>
-					<input type="text" class="form-control input-sm" id="id" th:field="*{id}" readonly="readonly" />
-					</div>
-					<div class="form-group row">
-					<label>	Nome </label>
-					<input type="text" class="form-control input-sm"  th:field="*{nome}" autofocus="autofocus" placeholder="Informe o nome" maxlength="50" />
-					</div>
-				</fieldset>
+					<fieldset>
+						<div class="form-group row">
+							<label> ID </label> <input type="text"
+								class="form-control input-sm" id="id" th:field="*{id}"
+								readonly="readonly" />
+						</div>
+						<div class="form-group row">
+							<label> Nome </label> <input type="text"
+								class="form-control input-sm" th:field="*{nome}"
+								autofocus="autofocus" placeholder="Informe o nome"
+								maxlength="50" />
+						</div>
+					</fieldset>
 				</div>
-				
+
 				<div align="center">
 					<button type="submit" class="btn btn-sm btn-success">SALVAR</button>
 					<a th:href="@{/aluno/listarAlunos}" class="btn btn-sm btn-default">CANCELAR</a>
 				</div>
-				
-				</form>
-			</div>
 
-</div>
+			</form>
+		</div>
+
+	</div>
 </body>
 </html>

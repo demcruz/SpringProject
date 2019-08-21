@@ -38,5 +38,9 @@ public class ProfessorService {
 		return salvar(professor);
 	}
 	
+	
+	public void excluir (Integer id) {
+		repoProfessor.deleteById(id);
+	}
 }
  

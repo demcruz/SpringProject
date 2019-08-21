@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
+
 import br.com.myprojeto.domain.Professor;
 import br.com.myprojeto.service.ProfessorService;
 import javassist.tools.rmi.ObjectNotFoundException;
@@ -43,7 +45,7 @@ public class ProfessorController {
 	
 	@GetMapping ("/alterar/{id}")
 	public ModelAndView alterarProfessor(@PathVariable("id")Integer idProfessor) throws ObjectNotFoundException{
-		ModelAndView mv = new ModelAndView("aluno/alteraProfessor");
+		ModelAndView mv = new ModelAndView("professor/alteraProfessor");
 		mv.addObject("professor", professorService.buscarporId(idProfessor));
 		return mv;
 	}
@@ -51,6 +53,12 @@ public class ProfessorController {
 	@PostMapping("/alterar")
 	public ModelAndView alterar(Professor professorAlterado) throws ObjectNotFoundException{
 		professorService.salvarAlteracao(professorAlterado);
+		return listarTodosProfessores();
+	}
+	
+	@GetMapping ("/excluir/{id}")
+	public ModelAndView excluirProfessor(@PathVariable("id")Integer id) {
+		professorService.excluir(id);
 		return listarTodosProfessores();
 	}
 	 
